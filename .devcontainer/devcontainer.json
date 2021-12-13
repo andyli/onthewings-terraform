@@ -1,0 +1,21 @@
+{
+	"name": "onthewings-terraform",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "workspace",
+	"workspaceFolder": "/workspace",
+	"remoteEnv": {
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+	"settings": {
+		"terraform.languageServer": {
+		  "pathToBinary": "/usr/local/bin/terraform-ls"
+		}
+	},
+	"extensions": [
+		"hashicorp.terraform",
+		"ms-azuretools.vscode-docker",
+		"earthly.earthfile-syntax-highlighting",
+		"nadako.vshaxe",
+	],
+	"remoteUser": "vscode"
+}
