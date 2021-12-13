@@ -80,6 +80,7 @@ RUN tfenv install "$TERRAFORM_VERSION"
 RUN tfenv use "$TERRAFORM_VERSION"
 
 USER $USERNAME
+WORKDIR /workspace
 
 # Create kubeconfig for storing current-context,
 # such that the workspace kubeconfig files wouldn't be touched.
