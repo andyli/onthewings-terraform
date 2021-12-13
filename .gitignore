@@ -1,6 +1,8 @@
 # direnv
 .envrc
 
+terraform-backend.tf
+
 # Local .terraform directories
 **/.terraform/*
 

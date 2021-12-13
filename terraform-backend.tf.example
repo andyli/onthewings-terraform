@@ -1,0 +1,11 @@
+terraform {
+  backend "pg" {
+    conn_str = "postgres://andy:FIXME@free-tier8.aws-ap-southeast-1.cockroachlabs.cloud:26257/onthewings-928.terraform_backend"
+
+    # Manually created these following
+    # https://github.com/hashicorp/terraform/blob/v1.1.0/internal/backend/remote-state/pg/backend.go
+    skip_schema_creation = true
+    skip_table_creation = true
+    skip_index_creation = true
+  }
+}
