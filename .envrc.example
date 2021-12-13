@@ -1,0 +1,5 @@
+export CLOUDFLARE_EMAIL=andy@onthewings.net
+
+# Global API Key
+# https://dash.cloudflare.com/profile/api-tokens
+export CLOUDFLARE_API_KEY=FIXME

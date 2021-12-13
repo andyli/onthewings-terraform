@@ -1,4 +1,4 @@
-resource "cloudflare_record" "terraform_managed_resource_c11e63b1da52ec82a4b7002405837aaa" {
+resource "cloudflare_record" "onthewings-root" {
   name    = "onthewings.net"
   proxied = true
   ttl     = 1
@@ -7,7 +7,7 @@ resource "cloudflare_record" "terraform_managed_resource_c11e63b1da52ec82a4b7002
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_ab7971e4c9e20ad3d08d81be138cf450" {
+resource "cloudflare_record" "onthewings-sacredibis" {
   name    = "sacredibis"
   proxied = false
   ttl     = 1
@@ -16,7 +16,7 @@ resource "cloudflare_record" "terraform_managed_resource_ab7971e4c9e20ad3d08d81b
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_79684b13a42672afdab47bac8570cff1" {
+resource "cloudflare_record" "onthewings-www" {
   name    = "www"
   proxied = true
   ttl     = 1
@@ -25,7 +25,7 @@ resource "cloudflare_record" "terraform_managed_resource_79684b13a42672afdab47ba
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_65218cb22dfca6caf7fc1d529b01d6eb" {
+resource "cloudflare_record" "onthewings-augmented-mirror" {
   name    = "augmented-mirror"
   proxied = false
   ttl     = 1
@@ -34,7 +34,7 @@ resource "cloudflare_record" "terraform_managed_resource_65218cb22dfca6caf7fc1d5
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_8dda66d56bb378b7729f6c6162c0b82c" {
+resource "cloudflare_record" "onthewings-blog" {
   name    = "blog"
   proxied = false
   ttl     = 1
@@ -43,7 +43,7 @@ resource "cloudflare_record" "terraform_managed_resource_8dda66d56bb378b7729f6c6
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_674f35bad895154f5833a8a78056e699" {
+resource "cloudflare_record" "onthewings-calendar" {
   name    = "calendar"
   proxied = false
   ttl     = 1
@@ -52,7 +52,7 @@ resource "cloudflare_record" "terraform_managed_resource_674f35bad895154f5833a8a
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_e47500b678ff4cfa6f89ddb275d63da8" {
+resource "cloudflare_record" "onthewings-docs" {
   name    = "docs"
   proxied = false
   ttl     = 1
@@ -61,7 +61,7 @@ resource "cloudflare_record" "terraform_managed_resource_e47500b678ff4cfa6f89ddb
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_f8636cc36035a70e28c0737306093102" {
+resource "cloudflare_record" "onthewings-mail" {
   name    = "mail"
   proxied = false
   ttl     = 1
@@ -70,7 +70,7 @@ resource "cloudflare_record" "terraform_managed_resource_f8636cc36035a70e28c0737
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_03afa381f43307d156f6f4801a620b55" {
+resource "cloudflare_record" "onthewings-sites" {
   name    = "sites"
   proxied = false
   ttl     = 1
@@ -79,7 +79,7 @@ resource "cloudflare_record" "terraform_managed_resource_03afa381f43307d156f6f48
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_f6cdecad9b268d6d7e36f8c7ddf21dc2" {
+resource "cloudflare_record" "onthewings-mx20" {
   name     = "onthewings.net"
   priority = 20
   proxied  = false
@@ -89,7 +89,7 @@ resource "cloudflare_record" "terraform_managed_resource_f6cdecad9b268d6d7e36f8c
   zone_id  = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_6a34db232d1db9619f366fdf79472b65" {
+resource "cloudflare_record" "onthewings-mx5" {
   name     = "onthewings.net"
   priority = 5
   proxied  = false
@@ -99,7 +99,7 @@ resource "cloudflare_record" "terraform_managed_resource_6a34db232d1db9619f366fd
   zone_id  = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_2374727bfb97fc0b1796de3d7279c566" {
+resource "cloudflare_record" "onthewings-mx15" {
   name     = "onthewings.net"
   priority = 15
   proxied  = false
@@ -109,7 +109,7 @@ resource "cloudflare_record" "terraform_managed_resource_2374727bfb97fc0b1796de3
   zone_id  = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_e2183782543b4ae3118e75a487f331d0" {
+resource "cloudflare_record" "onthewings-mx10" {
   name     = "onthewings.net"
   priority = 10
   proxied  = false
@@ -119,7 +119,7 @@ resource "cloudflare_record" "terraform_managed_resource_e2183782543b4ae3118e75a
   zone_id  = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_15ee4973db0f204204f34260b2d39189" {
+resource "cloudflare_record" "onthewings-mx25" {
   name     = "onthewings.net"
   priority = 25
   proxied  = false
@@ -147,7 +147,7 @@ resource "cloudflare_record" "terraform_managed_resource_5ad357e301942f8a66ed6a6
   }
 }
 
-resource "cloudflare_record" "terraform_managed_resource_b482c4440e86d9574c04d694f294ba1b" {
+resource "cloudflare_record" "onthewings-acme-sacredibis" {
   name    = "_acme-challenge.sacredibis"
   proxied = false
   ttl     = 120
@@ -156,8 +156,10 @@ resource "cloudflare_record" "terraform_managed_resource_b482c4440e86d9574c04d69
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_8e0a4a87651a052ebb05a649ba49242d" {
-  name    = "*"
+resource "cloudflare_record" "onthewings-gitlab-pages-verification" {
+  for_each = toset(["*", "onthewings.net"])
+
+  name    = each.key
   proxied = false
   ttl     = 1
   type    = "TXT"
@@ -165,7 +167,7 @@ resource "cloudflare_record" "terraform_managed_resource_8e0a4a87651a052ebb05a64
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_4284c811db771369ae5a4068ab3f06c5" {
+resource "cloudflare_record" "onthewings-keybase-site-verification" {
   name    = "onthewings.net"
   proxied = false
   ttl     = 1
@@ -174,7 +176,7 @@ resource "cloudflare_record" "terraform_managed_resource_4284c811db771369ae5a406
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
-resource "cloudflare_record" "terraform_managed_resource_c08ecf9d06d698a428ec8198a0d5cdb5" {
+resource "cloudflare_record" "onthewings-brave-ledger-verification" {
   name    = "onthewings.net"
   proxied = false
   ttl     = 1
@@ -182,13 +184,3 @@ resource "cloudflare_record" "terraform_managed_resource_c08ecf9d06d698a428ec819
   value   = "brave-ledger-verification=6326244af3ff750b8295de6d215e555d2bd45ff719c74df2b8d473f008c81f61"
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
-
-resource "cloudflare_record" "terraform_managed_resource_1671f72f9ea1c7d29f3b2af60052b67c" {
-  name    = "onthewings.net"
-  proxied = false
-  ttl     = 1
-  type    = "TXT"
-  value   = "gitlab-pages-verification-code=b31f20901aeabd4923a9b3cd2040ef12"
-  zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
-}
-
