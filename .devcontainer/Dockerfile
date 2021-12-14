@@ -36,6 +36,12 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         direnv \
         software-properties-common \
         build-essential \
+    # Install python
+    && add-apt-repository ppa:deadsnakes/ppa \
+    && apt-get -y install --no-install-recommends  \
+        python3.9-full \
+        python3.9-distutils \
+        python3.9-dev \
     # Install haxe
     && add-apt-repository ppa:haxe/haxe4.2 \
     && apt-get -y install --no-install-recommends haxe=1:4.2.* \
@@ -54,6 +60,15 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
+
+# Setup python
+RUN update-alternatives --install /usr/bin/python3 python /usr/bin/python3.9 1
+RUN python3 -m ensurepip --upgrade
+RUN python3 -m pip install --upgrade setuptools pip
+
+# Install ansible
+RUN python3 -m pip install ansible==5.0.1 ansible-core==2.12.1 argcomplete==1.12.3
+RUN activate-global-python-argcomplete
 
 # Install aws-iam-authenticator
 RUN curl -fsSL -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.9/2020-11-02/bin/linux/${TARGETARCH}/aws-iam-authenticator \
