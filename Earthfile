@@ -6,9 +6,12 @@ image:
     ARG IMAGE
     FROM ${IMAGE}
 
-echo:
-    ARG MSG
-    RUN --no-cache echo $MSG
+devcontainer-library-scripts:
+    FROM curlimages/curl:7.83.1
+    WORKDIR /tmp
+    RUN curl -fsSLO https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/common-debian.sh
+    RUN curl -fsSLO https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/docker-debian.sh
+    SAVE ARTIFACT --keep-ts *.sh AS LOCAL .devcontainer/library-scripts/
 
 devcontainer:
     COPY .devcontainer/docker-compose.yml docker-compose.yml

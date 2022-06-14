@@ -6,7 +6,7 @@ ARG INSTALL_ZSH="false"
 ARG UPGRADE_PACKAGES="false"
 ARG ENABLE_NONROOT_DOCKER="true"
 
-# moby-buildx is missing in bionic
+# Earthly doesn't work well with moby
 ARG USE_MOBY="false"
 # ENV DOCKER_BUILDKIT=1
 
@@ -15,8 +15,7 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 COPY library-scripts/*.sh /tmp/library-scripts/
 RUN apt-get update \
-    && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true" \
-    # Use Docker script from script library to set things up
+    && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" \
     && /bin/bash /tmp/library-scripts/docker-debian.sh "${ENABLE_NONROOT_DOCKER}" "/var/run/docker-host.sock" "/var/run/docker.sock" "${USERNAME}" "${USE_MOBY}" \
     # Clean up
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
@@ -83,16 +82,23 @@ RUN cd / \
     && rm -rf ./aws awscliv2.zip
 
 # Install earthly
-RUN curl -fsSL https://github.com/earthly/earthly/releases/download/v0.6.2/earthly-linux-${TARGETARCH} -o /usr/local/bin/earthly \
+RUN curl -fsSL https://github.com/earthly/earthly/releases/download/v0.6.15/earthly-linux-${TARGETARCH} -o /usr/local/bin/earthly \
     && chmod +x /usr/local/bin/earthly
 RUN earthly bootstrap --no-buildkit --with-autocomplete
 
 # Install tfenv
 RUN git clone --depth 1 https://github.com/tfutils/tfenv.git /tfenv \
     && ln -s /tfenv/bin/* /usr/local/bin
-ARG TERRAFORM_VERSION=1.1.0
+ARG TERRAFORM_VERSION=1.2.2
 RUN tfenv install "$TERRAFORM_VERSION"
 RUN tfenv use "$TERRAFORM_VERSION"
+
+# Install Terraform Language Server
+ARG TERRAFORM_LS_VERSION=0.28.1
+RUN curl -fsSL -o terraform-ls.zip https://github.com/hashicorp/terraform-ls/releases/download/v${TERRAFORM_LS_VERSION}/terraform-ls_${TERRAFORM_LS_VERSION}_linux_${TARGETARCH}.zip \
+    && unzip -qq terraform-ls.zip \
+    && mv ./terraform-ls /usr/local/bin/ \
+    && rm terraform-ls.zip
 
 USER $USERNAME
 WORKDIR /workspace
