@@ -65,21 +65,22 @@ RUN update-alternatives --install /usr/bin/python3 python /usr/bin/python3.9 1
 RUN python3 -m ensurepip --upgrade
 RUN python3 -m pip install --upgrade setuptools pip
 
-# Install ansible
-RUN python3 -m pip install ansible==5.0.1 ansible-core==2.12.1 argcomplete==1.12.3
-RUN activate-global-python-argcomplete
-
-# Install aws-iam-authenticator
-RUN curl -fsSL -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.9/2020-11-02/bin/linux/${TARGETARCH}/aws-iam-authenticator \
-    && chmod +x ./aws-iam-authenticator \
-    && mv ./aws-iam-authenticator /usr/local/bin/
-
 # Install AWS cli
 RUN cd / \
     && curl -fsSL -o awscliv2.zip "https://awscli.amazonaws.com/awscli-exe-linux-$(uname -m).zip" \
     && unzip -qq awscliv2.zip \
     && ./aws/install \
     && rm -rf ./aws awscliv2.zip
+
+# Install oci-cli
+# https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm#InstallingCLI__linux_and_unix
+RUN mkdir /oci-cli \
+    && curl -fsSL https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh -o /tmp/oci-cli-install.sh \
+    && bash /tmp/oci-cli-install.sh \
+        --install-dir /oci-cli \
+        --exec-dir /usr/local/bin \
+        --accept-all-defaults \
+    && rm /tmp/oci-cli-install.sh
 
 # Install earthly
 RUN curl -fsSL https://github.com/earthly/earthly/releases/download/v0.6.15/earthly-linux-${TARGETARCH} -o /usr/local/bin/earthly \

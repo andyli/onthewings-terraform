@@ -2,7 +2,7 @@ version: '3'
 
 services:
   workspace:
-    image: andyli/onthewings_terraform_devcontainer:20220614075321
+    image: andyli/onthewings_terraform_devcontainer:20220615024738
     init: true
     environment:
       - EARTHLY_BUILDKIT_HOST=tcp://earthly:8372
