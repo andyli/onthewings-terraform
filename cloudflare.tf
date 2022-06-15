@@ -85,27 +85,7 @@ resource "cloudflare_record" "onthewings-mx20" {
   proxied  = false
   ttl      = 1
   type     = "MX"
-  value    = "aspmx2.googlemail.com"
-  zone_id  = "fe07cc86b0ddbb11b6a0fb9476aba111"
-}
-
-resource "cloudflare_record" "onthewings-mx5" {
-  name     = "onthewings.net"
-  priority = 5
-  proxied  = false
-  ttl      = 1
-  type     = "MX"
-  value    = "aspmx.l.google.com"
-  zone_id  = "fe07cc86b0ddbb11b6a0fb9476aba111"
-}
-
-resource "cloudflare_record" "onthewings-mx15" {
-  name     = "onthewings.net"
-  priority = 15
-  proxied  = false
-  ttl      = 1
-  type     = "MX"
-  value    = "alt2.aspmx.l.google.com"
+  value    = "mailsec.protonmail.ch"
   zone_id  = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
@@ -115,17 +95,7 @@ resource "cloudflare_record" "onthewings-mx10" {
   proxied  = false
   ttl      = 1
   type     = "MX"
-  value    = "alt1.aspmx.l.google.com"
-  zone_id  = "fe07cc86b0ddbb11b6a0fb9476aba111"
-}
-
-resource "cloudflare_record" "onthewings-mx25" {
-  name     = "onthewings.net"
-  priority = 25
-  proxied  = false
-  ttl      = 1
-  type     = "MX"
-  value    = "aspmx3.googlemail.com"
+  value    = "mail.protonmail.ch"
   zone_id  = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
 
@@ -182,5 +152,59 @@ resource "cloudflare_record" "onthewings-brave-ledger-verification" {
   ttl     = 1
   type    = "TXT"
   value   = "brave-ledger-verification=6326244af3ff750b8295de6d215e555d2bd45ff719c74df2b8d473f008c81f61"
+  zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
+}
+
+resource "cloudflare_record" "onthewings-protonmail-verification" {
+  name    = "onthewings.net"
+  proxied = false
+  ttl     = 1
+  type    = "TXT"
+  value   = "protonmail-verification=d380f0b1ce6a79e5513696144d64fcd0e12a602b"
+  zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
+}
+
+resource "cloudflare_record" "onthewings-protonmail-spf" {
+  name    = "onthewings.net"
+  proxied = false
+  ttl     = 1
+  type    = "TXT"
+  value   = "v=spf1 include:_spf.protonmail.ch mx ~all"
+  zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
+}
+
+resource "cloudflare_record" "onthewings-protonmail_domainkey" {
+  name    = "protonmail._domainkey"
+  proxied = false
+  ttl     = 1
+  type    = "CNAME"
+  value   = "protonmail.domainkey.duyo6ecizhazx3bzmvbxbdokyfvqqui7gv6w2bfu3qkadfkpt37ka.domains.proton.ch"
+  zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
+}
+
+resource "cloudflare_record" "onthewings-protonmail2_domainkey" {
+  name    = "protonmail2._domainkey"
+  proxied = false
+  ttl     = 1
+  type    = "CNAME"
+  value   = "protonmail2.domainkey.duyo6ecizhazx3bzmvbxbdokyfvqqui7gv6w2bfu3qkadfkpt37ka.domains.proton.ch"
+  zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
+}
+
+resource "cloudflare_record" "onthewings-protonmail3_domainkey" {
+  name    = "protonmail3._domainkey"
+  proxied = false
+  ttl     = 1
+  type    = "CNAME"
+  value   = "protonmail3.domainkey.duyo6ecizhazx3bzmvbxbdokyfvqqui7gv6w2bfu3qkadfkpt37ka.domains.proton.ch"
+  zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
+}
+
+resource "cloudflare_record" "onthewings-protonmail-dmarc" {
+  name    = "_dmarc"
+  proxied = false
+  ttl     = 1
+  type    = "TXT"
+  value   = "v=DMARC1; p=none"
   zone_id = "fe07cc86b0ddbb11b6a0fb9476aba111"
 }
